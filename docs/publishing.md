@@ -49,7 +49,17 @@ README 由脚本生成。
 - [x] 仓库是真实可用的代码
 - [ ] **仓库创建满 1 天** —— 由对方 CI 自动检查，刚建好就提会被 CI 卡住
 
-因为本仓库是当天创建的，**建议满 24 小时后再提 PR**；提前提只会看到 CI 的 repo-age 失败。
+本仓库当天就提了 PR（见上），CI 的 repo-age 检查会在满 24 小时后自动放行。
+
+### 进展
+
+- **已提 PR**：[awesome-dsh-plugin#10613](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/10613)（2026-10-30），只新增一个条目文件。
+- 它的 CI 会先因为「仓库未满 1 天」失败。这不是错误：`scripts/check-submission.mjs` 里
+  `MIN_AGE_DAYS = 1`，年龄用 `Date.now() - repo.created_at` 在**每次运行时**重算，
+  仓库满 24 小时后同一个 PR 会自动转绿，**不需要重提、push 或关闭重开**。
+  仓库创建于 `2026-10-30T09:20:22Z`，即约 `2026-10-31 17:20`（北京时间）之后。
+- 合并后站点会重新生成 `plugins.json`；dsh-market 每次请求都实时拉取该文件，
+  所以刷新市场就能搜到，不用等安装包更新。
 
 ### 要提交的文件
 
