@@ -7,6 +7,8 @@
 > 这是一个 demo 级插件，刻意保持很小：没有分页、没有历史记录、没有设置项，代码可以直接当
 > 写 DSH 侧栏面板插件的模板读。
 
+仓库：<https://github.com/liupengprivate-blip/dsh-baidu>
+
 ## 功能
 
 - **左侧栏入口**：图标是放大镜，名称「搜索引擎模拟器」，点击切到主列页面。
@@ -20,14 +22,14 @@
 插件声明了 `dsh.bundle`，安装后自动挂进 profile，不需要手改配置。
 
 ```sh
-# 从 npm（发布后）
-dsh plugin --profile web add dsh-baidu
-
 # 从本地目录试用 / 开发
 dsh plugin --profile web add link:/absolute/path/to/dsh-baidu
 
 # 从 GitHub 源码
-dsh plugin --profile web add github:<your-account>/dsh-baidu
+dsh plugin --profile web add github:liupengprivate-blip/dsh-baidu
+
+# 从 npm（暂未发布到 npm，见「上架插件市场」）
+dsh plugin --profile web add dsh-baidu
 ```
 
 `web` 换成你自己的 profile 名（桌面版默认是 `desktop`）。装好后如果侧栏还没有入口，刷新一次页面。

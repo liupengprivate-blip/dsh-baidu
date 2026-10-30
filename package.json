@@ -13,6 +13,15 @@
     "demo"
   ],
   "license": "MIT",
+  "author": "liupengprivate-blip",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liupengprivate-blip/dsh-baidu.git"
+  },
+  "homepage": "https://github.com/liupengprivate-blip/dsh-baidu#readme",
+  "bugs": {
+    "url": "https://github.com/liupengprivate-blip/dsh-baidu/issues"
+  },
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -30,7 +39,8 @@
     "icon.svg",
     "README.md",
     "LICENSE",
-    "docs/requirements.md"
+    "docs/requirements.md",
+    "docs/publishing.md"
   ],
   "dsh": {
     "bundle": {
