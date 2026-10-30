@@ -138,8 +138,11 @@ dsh-baidu/
 
 市场（`dsh-market`）的插件列表来自精选仓库
 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)：
-往那边提一个 PR，加一条指向本仓库的条目，站点和市场的「发现」页会自动收录。
-官方市场的索引源（`dsh-plugin-catalog`）同理，走它的提交流程。
+往那边提一个 PR，新增 `data/plugins/liupengprivate-blip__dsh-baidu.yml` 一个文件即可
+（README 由脚本生成，不要手改）。对方 CI 要求**仓库创建满 1 天**，所以建仓当天提交会被卡。
+
+条目文件、PR 命令、以及 npm 包名被占用后的两条出路，都写在
+[docs/publishing.md](docs/publishing.md) 里。
 
 ## License
 
