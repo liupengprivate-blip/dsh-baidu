@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Search Engine Simulator",
+    "description": "A simulated search page with a sidebar launcher; queries the local DSH web search API and lists the top 10 results."
+  }
+}

@@ -1,0 +1,9 @@
+# Bundle patch layer of dsh-baidu.
+#
+# A package declaring `dsh.bundle` joins the profile's bundle stack, so
+# installing it (`dsh plugin --profile <name> add dsh-baidu`, a `link:` target,
+# or the plugin manager) needs no manual profile editing: this row activates
+# both halves of the plugin — the Host search route and the Web panel.
+- insert:
+    - id: dsh-baidu
+      name: 'dsh-baidu'
