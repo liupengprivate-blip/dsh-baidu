@@ -47,19 +47,35 @@ README 由脚本生成。
 - [x] 仓库根目录有 `cordis.patch.yml`
 - [x] 仓库加了 `dsh-plugin` topic
 - [x] 仓库是真实可用的代码
-- [ ] **仓库创建满 1 天** —— 由对方 CI 自动检查，刚建好就提会被 CI 卡住
+- [x] **仓库创建满 1 天** —— 由对方 CI 自动检查；本仓库的这条已在次日的 `regate` 重跑中自动放行
 
-本仓库当天就提了 PR（见上），CI 的 repo-age 检查会在满 24 小时后自动放行。
+### 进展：已收录（2026-11-01）
 
-### 进展
+- **PR 已合并**：[awesome-dsh-plugin#10613](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/10613)，
+  `merged_at = 2026-10-31T17:07:05Z`（北京时间 2026-11-01 01:07）。
+- **已进入线上市场数据**：`https://awesome-dsh-plugin.com/plugins.json`（8281 条）中可检索到该条目：
 
-- **已提 PR**：[awesome-dsh-plugin#10613](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/10613)（2026-10-30），只新增一个条目文件。
-- 它的 CI 会先因为「仓库未满 1 天」失败。这不是错误：`scripts/check-submission.mjs` 里
-  `MIN_AGE_DAYS = 1`，年龄用 `Date.now() - repo.created_at` 在**每次运行时**重算，
-  仓库满 24 小时后同一个 PR 会自动转绿，**不需要重提、push 或关闭重开**。
-  仓库创建于 `2026-10-30T09:20:22Z`，即约 `2026-10-31 17:20`（北京时间）之后。
-- 合并后站点会重新生成 `plugins.json`；dsh-market 每次请求都实时拉取该文件，
-  所以刷新市场就能搜到，不用等安装包更新。
+  ```json
+  {
+    "name": "dsh-baidu",
+    "owner": "liupengprivate-blip",
+    "url": "https://github.com/liupengprivate-blip/dsh-baidu",
+    "category": "ui",
+    "npm": null,
+    "install": "dsh plugin --profile web add github:liupengprivate-blip/dsh-baidu",
+    "added": "2026-10-31"
+  }
+  ```
+
+  这意味着在 dsh-market 里搜 `dsh-baidu` 即可看到并一键安装（它每次请求实时拉取该文件）。
+- 过程中的两个时间门槛（都已自动越过，无需人工干预）：
+  - 仓库年龄：`check-submission.mjs` 的 `MIN_AGE_DAYS = 1`，按 `Date.now() - repo.created_at`
+    每次重算；仓库建于此前的 `2026-10-30T09:20:22Z`，次日自动转绿。
+  - 重跑机制：对方 `regate` 定时任务（cron `19 */6 * * *`）会重跑已"老化"的失败检查。
+
+> 注意：npm 上的「发现」索引（`dsh-plugin-catalog`）仍不含本插件。该索引**只收录已在 npm
+> 发布且有版本的包**，`github:` 条目被设计性排除；这不影响 dsh-market，后者读的是上面的
+> `plugins.json`。要进那份索引，见第 4 节。
 
 ### 要提交的文件
 
